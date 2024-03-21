@@ -38,8 +38,21 @@ class Calculator:
     def clear(self):
         self.expression = ""
     
+    def open_parentheses(self):
+        self._append("(")
+
+    def close_parentheses(self):
+        self._append(")")
+
+    def power(self):
+        self._append("**")
+
+    def square_root(self):
+        self._append("sqrt(")
+
     def compute_result(self) -> Number:
         try:
+            from math import sqrt
             result = eval(self.expression)
             if isinstance(result, Number):
                 self.expression = str(result)
